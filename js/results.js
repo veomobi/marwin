@@ -6,7 +6,7 @@ const results = {
     latestResults: [],
     getResults(query = GLOBAL_VARIABLES.searchQuery){
         this.latestResults = [];
-        itemsExtended.forEach(
+        items.forEach(
             elm=>{
                 if (elm.includes(query)){
                     this.latestResults.push(elm);
@@ -27,28 +27,8 @@ const results = {
     }
 }
 
-function divideIntoArrays(bigArray,chunkSize){
-    let currentSize = 0;
-    let currentArray = [];
-    let finalChunks = [];
-    bigArray.forEach(
-        element=>{
-            if (currentSize < chunkSize){
-                currentArray.push(element);
-                currentSize++;
-            } else{
-                finalChunks.push(currentArray);
-                currentArray = [];
-                currentSize = 0;
-            }
-        }
-    )
-    return finalChunks;
-}
-
 function divideArray(array,chunkSize){
     let numArrays = Math.ceil(array.length / chunkSize);
-    console.log(numArrays)
     let finalChunks = [];
     let index = 0;
     for (let i = 0; i < numArrays; i++){

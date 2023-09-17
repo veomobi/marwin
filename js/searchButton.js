@@ -4,7 +4,6 @@ const searchButton = {
     ),
     displayValue:0,
     clickListener(ctx){
-        console.log("the button has been clicked");
         ctx.displayValue++;
         ctx.htmlElement.innerHTML = ctx.displayValue;
     },
