@@ -1,5 +1,5 @@
 let items = [];
-generateData(200000, 90);
+generateData(2000, 90);
 
 function randomLetter() {
     let letters = "abcdefghijklmnopqrstuvwxyz";

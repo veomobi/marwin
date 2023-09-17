@@ -4,7 +4,9 @@ const results = {
     ),
     maxResultsPerPage:25,
     latestResults: [],
+    query:undefined,
     getResults(query = GLOBAL_VARIABLES.searchQuery){
+        this.query = query;
         this.latestResults = [];
         items.forEach(
             elm=>{
@@ -20,9 +22,15 @@ const results = {
     },
     showResults(){
         this.htmlElement.innerHTML = ""
-        this.latestResults[Number(GLOBAL_VARIABLES.pageNumber)].forEach(element => {
-            this.htmlElement.innerHTML +=
-            `<div class="result">${element}</div>`;
+        GLOBAL_VARIABLES.results[Number(GLOBAL_VARIABLES.pageNumber)].forEach(element => {
+            let string = `<div class="result">${element}</div>`;
+            string = string.replace(
+                this.query,
+                `<span class='word'>${this.query}</span>`
+            )
+            console.log(string)
+            this.htmlElement.innerHTML += string;
+
         });
     }
 }
@@ -36,7 +44,7 @@ function divideArray(array,chunkSize){
         for (let j = 0; j < chunkSize; j++){
             newArr.push(array[index]);
             index++;
-            if (index > array.length - 1){
+            if (index > array.length -1){
                 break;
             }
         }

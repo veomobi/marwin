@@ -118,3 +118,7 @@ h2 {
 .result {
     overflow: hidden;
 }
+
+.word {
+    background-color: yellow;
+}
