@@ -121,4 +121,5 @@ h2 {
 
 .word {
     background-color: yellow;
+    overflow: hidden;
 }

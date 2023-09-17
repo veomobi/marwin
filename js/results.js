@@ -23,11 +23,10 @@ const results = {
     showResults(){
         this.htmlElement.innerHTML = ""
         GLOBAL_VARIABLES.results[Number(GLOBAL_VARIABLES.pageNumber)].forEach(element => {
-            let string = `<div class="result">${element}</div>`;
-            string = string.replace(
-                this.query,
-                `<span class='word'>${this.query}</span>`
-            )
+            let string = '<div class="result">'
+            string += element.replace(this.query, `<span class="word">${this.query}</span>`);
+            string += "</div>";
+
             console.log(string)
             this.htmlElement.innerHTML += string;
 
